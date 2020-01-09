@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.uv.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.uv.entity.User">
+        <id property="id" column="id"/>
+        <result property="content" column="content"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select * from user order by id desc limit 10
+    </select>
+
+    <insert id="insertUser" parameterType ="com.uv.entity.User">
+        insert INTO user(content) values(1)
+    </insert>
+
+    <insert id="insertContent" parameterType ="com.uv.entity.User">
+        insert INTO user(content) values(#{content})
+    </insert>
+
+</mapper>
